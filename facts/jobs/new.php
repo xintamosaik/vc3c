@@ -21,6 +21,12 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     <label for="position">Position</label>
     <input type="text" id="position" name="position" required>
     <br>
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" value="<?php echo htmlspecialchars($jobData['location']); ?>" required>
+    <br>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" required><?php echo htmlspecialchars($jobData['description']); ?></textarea>
+    <br>
     <label for="start">Start Date</label>
     <input type="date" id="start" name="start" required>
     <br>

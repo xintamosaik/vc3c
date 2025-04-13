@@ -43,6 +43,12 @@ if ($jobData === null) {
     <label for="position">Position</label>
     <input type="text" id="position" name="position" value="<?php echo htmlspecialchars($jobData['position']); ?>" required>
     <br>
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" value="<?php echo htmlspecialchars($jobData['location']); ?>" required>
+    <br>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" required><?php echo htmlspecialchars($jobData['description']); ?></textarea>
+    <br>
     <label for="start">Start Date</label>
     <input type="date" id="start" name="start" value="<?php echo htmlspecialchars($jobData['start']); ?>" required>
     <br>

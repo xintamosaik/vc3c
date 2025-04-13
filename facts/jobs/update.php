@@ -18,7 +18,9 @@ $updatedData = [
     'company' => $_POST['company'],
     'position' => $_POST['position'],
     'start' => $_POST['start'],
-    'end' => $_POST['end']
+    'end' => $_POST['end'],
+    'location' => $_POST['location'],
+    'description' => $_POST['description']
 ];
 
 // Save the updated data back to the file
