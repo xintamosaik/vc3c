@@ -128,9 +128,7 @@ $location = $personal_data['location'] ?? '';
                     </h4>
 
                     <ul>
-                    
-                            $description
-                    
+                        $description
                     </ul>
                 </div>
             HTML;
