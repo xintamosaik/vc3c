@@ -2,7 +2,7 @@
 $title = "Ulf Dellbrügge - Software Engineer";
 include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
 ?>
-<a href="./">editor</a>
+<a href="/">editor</a>
 <div id="preview-content">
     <!-- This is where the content will be rendered -->
     <section id="title">
