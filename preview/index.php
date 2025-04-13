@@ -1,38 +1,80 @@
 <?php
 $title = "Ulf Dellbrügge - Software Engineer";
 include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
+
+/**
+ * mock data
+ */
+
+$position = "Software Engineer";
+
+$linkedin = "https://www.linkedin.com/in/ulf-dellbr%C3%BCgge-95174918a/";
+$email = "ulfdellbruegge@gmail.com";
+$github = "github.com/xintamosaik";
+$skills = [
+    "Languages" => "TypeScript/Javascript, PHP, Golang, Java, CSS, HTML",
+    "Frameworks" => "React, Tailwind, Next, Vite, Webpack",
+    "Tools/Platforms" => "Git, Docker, Github (Actions), AWS",
+    "Methodologies" => "Agile, Pair/Ensemble Programming, TDD/BDD"
+];
+
+/**
+ * real data
+ * 
+ * summary - data/summary.json
+ * personal - data/personal.json
+ * contact - data/contact.json
+ * jobs - data/jobs/*.json
+ * education - data/education/*.json
+ * skills - data/skills.json
+ */
+$summary_json = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/summary.json');
+$summary_data = json_decode($summary_json, true);
+$summary = $summary_data['summary'] ?? '';
+
+$personal_json = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/personal.json');
+$personal_data = json_decode($personal_json, true);
+$full_name = $personal_data['name'] ?? '';
+$location = $personal_data['location'] ?? '';
+
 ?>
 <a href="/">editor</a>
 <div id="preview-content">
     <!-- This is where the content will be rendered -->
     <section id="title">
         <h1>
-            <span>Ulf Dellbrügge</span>
+            <span>
+                <strong><?php echo $full_name; ?></strong>
+            </span>
             <span class="dash"></span>
-            <span>Software Engineer</span>
+            <span>
+                <strong><?php echo $position; ?></strong>
+            </span>
         </h1>
     </section>
 
     <section id="contact">
         <span>
-            <a href="https://www.linkedin.com/in/ulf-dellbr%C3%BCgge-95174918a/" target="_blank">
+            <a href="<?php echo $linkedin; ?>" target="_blank">
                 LinkedIn
             </a>
         </span>
         <span class="dash"></span>
         <span>
-            <a href="mailto:ulfdellbruegge@gmail.com">
-                ulfdellbruegge@gmail.com
+            <a href="mailto:<?php echo $email; ?>" target="_blank">
+                <?php echo $email; ?>
             </a>
         </span>
         <span class="dash"></span>
         <span>
-            <a href="https://github.com/xintamosaik" target="_blank">
-                github.com/xintamosaik
+            <a href="https://<?php echo $github ?>" target="_blank">
+                <?php echo $github; ?>
             </a>
         </span>
         <span class="dash"></span>
-        <span>Düsseldorf, Germany</span>
+        <span>
+           <?php echo $location; ?>
+        </span>
     </section>
 
     <!-- SUMMARY-->
@@ -40,7 +82,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     <section id="summary">
         <h2>Summary</h2>
         <p>
-            TypeScript expert and Software Engineer with a proven track record of optimizing legacy systems and building scalable web applications. Respected Tech Lead and Mentor who drives team excellence. Uniquely combines technical expertise with sociology background to foster continuous improvement in development culture and team dynamics.
+            <?php echo $summary; ?>
         </p>
     </section>
 
@@ -119,6 +161,34 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
             </ul>
 
         </div>
+        <?php
+        $job_files = glob($_SERVER['DOCUMENT_ROOT'] . '/data/jobs/*.json');
+        foreach ($job_files as $file) {
+            $job_json = file_get_contents($file);
+            $job_data = json_decode($job_json, true);
+            print_r($job_data);
+            $job_title = $job_data['position'] ?? '';
+            $company = $job_data['company'] ?? '';
+            $start_date = $job_data['start'] ?? '';
+            $end_date = $job_data['end'] ?? '';
+            $location = $job_data['location'] ?? '';
+            $description = $job_data['description'] ?? '';
+
+            echo "<div class='job entry'>";
+            echo "<h3>";
+            echo "<span>$job_title</span>";
+            echo "<span class='dash'></span>";
+            echo "<span>$company</span>";
+            echo "</h3>";
+            echo "<h4>";
+            echo "<span>$start_date - $end_date</span>";
+            echo "<span class='dash'></span>";
+            echo "<span>$location</span>";
+            echo "</h4>";
+            echo "<p>$description</p>";
+            echo "</div>";
+        }
+        ?>
     </section>
 
     <!-- SKILLS -->
