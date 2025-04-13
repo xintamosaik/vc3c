@@ -37,13 +37,13 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     ?>
     <label for="name">Name</label>
     <input type="text" id="name" name="name" value="<?php echo $name ?>" required>
-
+    <br>
     <label for="dob">Date of Birth</label>
     <input type="date" id="dob" name="dob" value="<?php echo $dob; ?>" required>
-
+    <br>
     <label for="location">Location</label>
     <input type="text" id="location" name="location" value="<?php echo $location; ?>" required>
-
+    <br>
     <input type="submit" value="Save Changes">
 
 

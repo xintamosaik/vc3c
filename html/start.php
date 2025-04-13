@@ -8,6 +8,7 @@
   <title>
     <?php echo $title; ?>
   </title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>

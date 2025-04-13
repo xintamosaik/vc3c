@@ -33,7 +33,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     ?>
     <label for="summary">Professional Summary</label>
     <textarea id="summary" name="summary" rows="5" required><?php echo $summary; ?></textarea>
-
+    <br>
     <input type="submit" value="Save Changes">
 </form>
 
