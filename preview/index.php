@@ -167,6 +167,37 @@ $email = $contact_data['email'] ?? '';
             </h4>
             <p>Specialization: Qualitative Studies and Workplace Studies/Ethnomethodology</p>
         </div>
+        <?php
+        $education_files = glob($_SERVER['DOCUMENT_ROOT'] . '/data/education/*.json');
+        foreach ($education_files as $file) {
+            $education_json = file_get_contents($file);
+            $education_data = json_decode($education_json, true);
+
+            $degree = $education_data['degree'] ?? '';
+            $institution = $education_data['institution'] ?? '';
+            $start_date = $education_data['start'] ?? '';
+            $end_date = $education_data['end'] ?? '';
+            $location = $education_data['location'] ?? '';
+            $description = $education_data['description'] ?? '';
+
+            echo <<<HTML
+                <div class="education entry">
+                    <h3>
+                        <span>$degree</span>
+                        <span class="dash"></span>
+                        <span>$institution</span>
+                    </h3>
+                    <h4>
+                        <span>$start_date - $end_date</span>
+                        <span class="dash"></span>
+                        <span>$location</span>
+                    </h4>
+                    <p>$description</p>
+
+                </div>
+            HTML;
+        }
+        ?>
 
 
     </section>
