@@ -11,8 +11,7 @@ $educationData = [
 ];
 
 // Generate a unique filename using a timestamp
-$timestamp = time();
-$filePath = $_SERVER['DOCUMENT_ROOT'] . "/data/education/education_$timestamp.json";
+$filePath = $_SERVER['DOCUMENT_ROOT'] . "/data/education/" . time() . ".json";
 
 // Ensure the directory exists
 $dir = $_SERVER['DOCUMENT_ROOT'] . '/data/education/';

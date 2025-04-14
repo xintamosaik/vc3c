@@ -26,6 +26,7 @@ $dir = $_SERVER['DOCUMENT_ROOT'] . '/data/education/';
 $files = glob($dir . '*.json');
 foreach ($files as $file) {
     $fileName = basename($file);
+    $id = explode('.', $fileName)[0];
     $filePath = '/data/education/' . $fileName;
     $fileData = json_decode(file_get_contents($file), true);
     if ($fileData === null) {
@@ -52,8 +53,8 @@ foreach ($files as $file) {
         <p>$formattedStartDate - $formattedEndDate</p>
         <p>$location</p>
         <p>$description</p>
-        <a href="/facts/education/edit.php?file=$filePath">Edit</a>
-        <a href="/facts/education/remove.php?file=$filePath">Delete</a>
+        <a href="/facts/education/edit.php?id=$id">Edit</a>
+        <a href="/facts/education/remove.php?id=$id">Delete</a>
     </div>
     HTML;
 }
