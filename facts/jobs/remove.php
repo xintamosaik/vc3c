@@ -5,6 +5,11 @@ if (!isset($_GET['id'])) {
     echo "No id specified.";
     exit;
 }
+if (!is_numeric($_GET['id'])) {
+    echo "Invalid id.";
+    exit;
+}
+
 $filePath = $_SERVER['DOCUMENT_ROOT'] . '/data/jobs/' . htmlspecialchars($_GET['id']) . '.json';
 // Check if the file exists
 if (!file_exists($filePath)) {
@@ -16,7 +21,6 @@ $filePath = '/data/jobs/' . $fileName;
 
 ?>
 
-
 <h1>
     Remove Job
 </h1>
@@ -24,7 +28,7 @@ $filePath = '/data/jobs/' . $fileName;
     <label for="file">
         Really remove <?php echo htmlspecialchars($fileName); ?>
     </label>
-    <input type="hidden" id="id" name="id" value="<?php echo htmlspecialchars($GET['id']); ?>" required>
+    <input type="hidden" id="id" name="id" value="<?php echo htmlspecialchars($_GET['id']); ?>" required>
 
     <input type="submit" value="Delete">
     <a href="/facts/jobs">Cancel</a>

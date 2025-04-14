@@ -2,6 +2,16 @@
 // Get the submitted form data
 
 $requested_to_delete = $_POST['id'];
+if (!isset($requested_to_delete)) {
+    echo "No id specified.";
+    exit;
+}
+
+if (!is_numeric($requested_to_delete)) {
+    echo "Invalid id specified.";
+    exit;
+}
+
 // Define the file path where the data will be stored
 $filePath = $_SERVER['DOCUMENT_ROOT'] . '/data/jobs/' . $requested_to_delete . '.json';
 
