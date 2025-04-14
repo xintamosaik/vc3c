@@ -3,9 +3,9 @@ $title = "CV Generator - Skills";
 include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
 ?>
 <nav>
-    <a href="/">home</a> &gt; 
+    <a href="/">home</a> &gt;
     <a href="/facts/">facts</a> &gt;
-    <span>skills</span> | 
+    <span>skills</span> |
     <a href="/preview/">preview</a>
 
     <h1>
@@ -14,7 +14,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
 
     <a href="/facts/skills/new.php">add skill</a>
 
-    <?php 
+    <?php
     $directory = $_SERVER['DOCUMENT_ROOT'] . '/data/skills/';
     $files = glob(pattern: $directory . '*.json');
     foreach ($files as $file) {
@@ -23,7 +23,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
         $level = htmlspecialchars($data['level']);
         $description = htmlspecialchars($data['description']);
         $category = htmlspecialchars($data['category']);
- 
+        $basename = basename($file);
         echo <<<HTML
         <hr>
         <div class="skill">
@@ -32,8 +32,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
             <p>Description: $description</p>
             <p>Category: $category</p>
         </div>
-        <a href="/facts/skills/edit.php?file=" . basename($file) . ">edit</a>
-        <a href="/facts/skills/delete.php?file=" . basename($file) . ">delete</a>
+        <a href="/facts/skills/edit.php?file=$basename">edit</a>
+        <a href="/facts/skills/delete.php?file=$basename">delete</a>
         HTML;
     }
     ?>
