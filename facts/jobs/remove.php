@@ -1,11 +1,11 @@
 <?php
 $title = "CV Generator - Add Job";
 include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
-if (!isset($_GET['file'])) {
-    echo "No file specified.";
+if (!isset($_GET['id'])) {
+    echo "No id specified.";
     exit;
 }
-$filePath = $_SERVER['DOCUMENT_ROOT'] . $_GET['file'];
+$filePath = $_SERVER['DOCUMENT_ROOT'] . '/data/jobs/' . htmlspecialchars($_GET['id']) . '.json';
 // Check if the file exists
 if (!file_exists($filePath)) {
     echo "File not found.";
@@ -24,7 +24,7 @@ $filePath = '/data/jobs/' . $fileName;
     <label for="file">
         Really remove <?php echo htmlspecialchars($fileName); ?>
     </label>
-    <input type="hidden" id="file" name="file" value="<?php echo htmlspecialchars($filePath); ?>" required>
+    <input type="hidden" id="id" name="id" value="<?php echo htmlspecialchars($filePath); ?>" required>
 
     <input type="submit" value="Delete">
     <a href="/facts/jobs">Cancel</a>

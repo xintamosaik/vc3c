@@ -1,11 +1,11 @@
 <?php
 // Ensure the file parameter is provided
-if (!isset($_POST['file'])) {
-    echo "No file specified.";
+if (!isset($_POST['id'])) {
+    echo "No id specified.";
     exit;
 }
 
-$filePath = $_SERVER['DOCUMENT_ROOT'] . $_POST['file'];
+$filePath = $_SERVER['DOCUMENT_ROOT'] . '/data/jobs/' . htmlspecialchars($_POST['id']) . '.json';
 
 // Check if the file exists
 if (!file_exists($filePath)) {

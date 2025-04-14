@@ -16,6 +16,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     $files = glob($dir . '*.json');
     foreach ($files as $file) {
         $fileName = basename($file);
+        $id = explode('.', $fileName)[0];
         $filePath = '/data/jobs/' . $fileName;
         $fileData = json_decode(file_get_contents($file), true);
         if ($fileData === null) {
@@ -44,8 +45,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
             <p><strong>$company</strong></p>
             <p>$position</p>
             <p>$formattedStartDate - $formattedEndDate</p>
-            <a href="/facts/jobs/edit.php?file=$filePath">Edit</a>
-            <a href="/facts/jobs/remove.php?file=$filePath">Delete</a>
+            <a href="/facts/jobs/edit.php?id=$id">Edit</a>
+            <a href="/facts/jobs/remove.php?id=$id">Delete</a>
         </div>
       
         HTML;
