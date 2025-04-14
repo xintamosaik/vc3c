@@ -24,7 +24,7 @@ $filePath = '/data/jobs/' . $fileName;
     <label for="file">
         Really remove <?php echo htmlspecialchars($fileName); ?>
     </label>
-    <input type="hidden" id="id" name="id" value="<?php echo htmlspecialchars($filePath); ?>" required>
+    <input type="hidden" id="id" name="id" value="<?php echo htmlspecialchars($GET['id']); ?>" required>
 
     <input type="submit" value="Delete">
     <a href="/facts/jobs">Cancel</a>
