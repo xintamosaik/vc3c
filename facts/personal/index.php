@@ -44,6 +44,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     <label for="location">Location</label>
     <input type="text" id="location" name="location" value="<?php echo $location; ?>" required>
     <br>
+
     <input type="submit" value="Save Changes">
 
 

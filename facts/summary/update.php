@@ -10,7 +10,8 @@ $filePath = $_SERVER['DOCUMENT_ROOT'] . '/data/summary.json';
 
 // Get the updated summary information from the form submission
 $updatedData = [
-    'summary' => $_POST['summary']
+    'summary' => $_POST['summary'],
+    'position' => $_POST['position'] ?? '',
 ];
 
 // Save the updated data to the file

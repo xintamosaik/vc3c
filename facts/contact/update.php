@@ -12,7 +12,10 @@ $filePath = $_SERVER['DOCUMENT_ROOT'] . '/data/contact.json';
 $updatedData = [
     'email' => $_POST['email'],
     'phone' => $_POST['phone'],
-    'address' => $_POST['address']
+    'address' => $_POST['address'],
+    'linkedin' => $_POST['linkedin'] ?? '',
+    'github' => $_POST['github'] ?? '',
+    'website' => $_POST['website'] ?? ''
 ];
 
 // Save the updated data to the file

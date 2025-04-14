@@ -2,15 +2,6 @@
 $title = "Ulf Dellbrügge - Software Engineer";
 include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
 
-/**
- * mock data
- */
-
-$position = "Software Engineer";
-
-$linkedin = "https://www.linkedin.com/in/ulf-dellbr%C3%BCgge-95174918a/";
-$email = "ulfdellbruegge@gmail.com";
-$github = "github.com/xintamosaik";
 $skills = [
     "Languages" => "TypeScript/Javascript, PHP, Golang, Java, CSS, HTML",
     "Frameworks" => "React, Tailwind, Next, Vite, Webpack",
@@ -18,25 +9,24 @@ $skills = [
     "Methodologies" => "Agile, Pair/Ensemble Programming, TDD/BDD"
 ];
 
-/**
- * real data
- * 
- * summary - data/summary.json
- * personal - data/personal.json
- * contact - data/contact.json
- * jobs - data/jobs/*.json
- * education - data/education/*.json
- * skills - data/skills.json
- */
 $summary_json = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/summary.json');
 $summary_data = json_decode($summary_json, true);
 $summary = $summary_data['summary'] ?? '';
+$position = $summary_data['position'] ?? '';
 
 $personal_json = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/personal.json');
 $personal_data = json_decode($personal_json, true);
 $full_name = $personal_data['name'] ?? '';
 $location = $personal_data['location'] ?? '';
 
+$contact_json = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/contact.json');
+$contact_data = json_decode($contact_json, true);
+$phone = $contact_data['phone'] ?? '';
+$address = $contact_data['address'] ?? '';
+$website = $contact_data['website'] ?? '';
+$github = $contact_data['github'] ?? '';
+$linkedin = $contact_data['linkedin'] ?? '';
+$email = $contact_data['email'] ?? '';
 ?>
 <a href="/">editor</a>
 <div id="preview-content">

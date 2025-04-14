@@ -34,6 +34,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     <label for="summary">Professional Summary</label>
     <textarea id="summary" name="summary" rows="5" required><?php echo $summary; ?></textarea>
     <br>
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<?php echo htmlspecialchars($personalData['position'] ?? ''); ?>">
+    <br>
     <input type="submit" value="Save Changes">
 </form>
 

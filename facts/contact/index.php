@@ -44,6 +44,15 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     <label for="address">Address</label>
     <input type="text" id="address" name="address" value="<?php echo $address; ?>" required>
     <br>
+    <label for="linkedin">LinkedIn</label>
+    <input type="url" id="linkedin" name="linkedin" value="<?php echo htmlspecialchars($contactData['linkedin'] ?? ''); ?>">
+    <br>
+    <label for="github">GitHub</label>
+    <input type="url" id="github" name="github" value="<?php echo htmlspecialchars($contactData['github'] ?? ''); ?>">
+    <br>
+    <label for="website">Website</label>
+    <input type="url" id="website" name="website" value="<?php echo htmlspecialchars($contactData['website'] ?? ''); ?>">
+    <br>
     <input type="submit" value="Save Changes">
 </form>
 
