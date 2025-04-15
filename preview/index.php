@@ -12,8 +12,9 @@
     <style>
         body {
             font-family: "Helvetica", "Verdana", "Roboto", "Arial", sans-serif;
-            margin: 0;
+            margin: 0 auto;
             font-size: 9pt;
+            width: min(100%, 210mm);
 
         }
 
