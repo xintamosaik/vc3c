@@ -6,12 +6,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Get the file path from the form submission
-if (!isset($_POST['file'])) {
+if (!isset($_POST['id'])) {
     echo "No file specified.";
     exit;
 }
 
-$filePath = $_SERVER['DOCUMENT_ROOT'] . $_POST['file'];
+if (!is_numeric($_POST['id'])) {
+    echo "Invalid file id.";
+    exit;
+}
+
+$filePath = $_SERVER['DOCUMENT_ROOT'] . "/data/skills/" . htmlspecialchars($_POST['id']) . ".json";
 
 // Check if the file exists
 if (!file_exists($filePath)) {

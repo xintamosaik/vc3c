@@ -1,8 +1,17 @@
 <?php
 // Get the submitted form data
-$requested_to_delete = $_POST['file'];
+$requested_to_delete = $_POST['id'];
+
+if (!isset($requested_to_delete)) {
+    echo "No id specified.";
+    exit;
+}
+if (!is_numeric($requested_to_delete)) {
+    echo "Invalid id.";
+    exit;
+}
 // Define the file path where the data will be stored
-$filePath = $_SERVER['DOCUMENT_ROOT'] . "/data/skills/" . $requested_to_delete;
+$filePath = $_SERVER['DOCUMENT_ROOT'] . "/data/skills/" . $requested_to_delete . ".json";
 
 $file_exists = file_exists($filePath);
 if ($file_exists) {
