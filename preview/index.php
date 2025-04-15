@@ -74,7 +74,6 @@
 
         h4 {
             font-weight: normal;
-            ;
             font-style: italic;
             margin-top: 4pt;
             font-size: 11pt;
@@ -112,12 +111,12 @@
                 color: rgb(7, 43, 94);
                 text-decoration: none;
 
-              
+
             }
 
             nav {
-                    display: none;
-                }
+                display: none;
+            }
 
 
         }
