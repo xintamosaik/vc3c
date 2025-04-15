@@ -28,6 +28,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
         $summaryData = json_decode(file_get_contents($filePath), true);
         if ($summaryData !== null) {
             $summary = htmlspecialchars($summaryData['summary']) ?? '';
+            $position = htmlspecialchars($summaryData['position']) ?? '';
         }    
     }
     ?>
@@ -35,7 +36,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
     <textarea id="summary" name="summary" rows="5" required><?php echo $summary; ?></textarea>
     <br>
     <label for="position">Position</label>
-    <input type="text" id="position" name="position" value="<?php echo htmlspecialchars($personalData['position'] ?? ''); ?>">
+    <input type="text" id="position" name="position" value="<?php echo $position; ?>">
     <br>
     <input type="submit" value="Save Changes">
 </form>

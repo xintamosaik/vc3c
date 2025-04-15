@@ -3,8 +3,9 @@ $title = "CV Generator - Jobs";
 include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
 ?>
 <nav>
-    <a href="/facts">facts</a>
-    <a href="/index.php">home</a>
+<a href="/index.php">home</a> &gt;
+    <a href="/facts">facts</a> &gt;
+    <span>jobs</span> |
     <a href="/preview">preview</a>
 </nav>
 <h1>

@@ -5,6 +5,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
 
 <nav>
     <!-- breadcrumbs like --> 
+    <a href="/">home</a> &gt;
     <a href="/facts">facts</a> &gt;
   
     <span>education</span> |
