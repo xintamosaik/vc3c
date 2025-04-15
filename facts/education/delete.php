@@ -18,15 +18,16 @@ $requested_to_delete = $_POST['id'];
 $filePath = $_SERVER['DOCUMENT_ROOT'] . '/data/education/' . $requested_to_delete . '.json';
 echo $filePath;
 $file_exists = file_exists($filePath);
-if ($file_exists) {
-    // Delete the file
-    if (unlink($filePath)) {
-        // Redirect back to the education index page
-        header('Location: /facts/education');
-        exit;
-    } else {
-        echo "Error deleting file.";
-    }
-} else {
+if (!file_exists($filePath)) {
     echo "File not found.";
+    exit;
+}
+
+// Delete the file
+if (unlink($filePath)) {
+    // Redirect back to the education index page
+    header('Location: /facts/education');
+    exit;
+} else {
+    echo "Error deleting file.";
 }

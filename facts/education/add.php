@@ -22,7 +22,9 @@ if (!is_dir($dir)) {
 // Save the education data to the file
 $result = file_put_contents($filePath, json_encode($educationData, JSON_PRETTY_PRINT));
 if ($result === false) {
+    error_log("Failed to write to file: $filePath");
     echo "Error saving education entry.";
+    exit;
 } else {
     // Redirect back to the education index page
     header('Location: /facts/education/');

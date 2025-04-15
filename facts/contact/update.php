@@ -21,7 +21,9 @@ $updatedData = [
 // Save the updated data to the file
 $result = file_put_contents($filePath, json_encode($updatedData, JSON_PRETTY_PRINT));
 if ($result === false) {
-    echo "Error saving contact information.";
+    error_log("Failed to write to file: $filePath");
+    echo "Failed to update contact information.";
+    exit;
 } else {
     // Redirect back to the contact information page
     header('Location: /facts/?update=success');
