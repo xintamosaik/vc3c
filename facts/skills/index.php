@@ -26,6 +26,7 @@ $files = glob($dir . '*.json');
 foreach ($files as $file) {
     $fileName = basename($file);
     $filePath = '/data/skills/' . $fileName;
+    $id = explode('.', $fileName)[0];
     $fileData = json_decode(file_get_contents($file), true);
     if ($fileData === null) {
         echo "Error reading file: $file";
@@ -44,8 +45,8 @@ foreach ($files as $file) {
         <p><strong>Level:</strong> $level</p>
         <p><strong>Category:</strong> $category</p>
         <p>$description</p>
-        <a href="/facts/skills/edit.php?file=$filePath">Edit</a>
-        <a href="/facts/skills/remove.php?file=$filePath">Delete</a>
+        <a href="/facts/skills/edit.php?id=$id">Edit</a>
+        <a href="/facts/skills/remove.php?id=$id">Delete</a>
     </div>
     HTML;
 }

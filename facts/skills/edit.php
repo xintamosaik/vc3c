@@ -3,12 +3,17 @@ $title = "CV Generator - Edit Skill";
 include $_SERVER['DOCUMENT_ROOT'] . "/html/start.php";
 
 // Get the file path from the query parameter
-if (!isset($_GET['file'])) {
-    echo "No file specified.";
+if (!isset($_GET['id'])) {
+    echo "No id specified.";
     exit;
 }
 
-$filePath = $_SERVER['DOCUMENT_ROOT'] . $_GET['file'];
+if (!is_numeric($_GET['id'])) {
+    echo "Invalid id.";
+    exit;
+}
+
+$filePath = $_SERVER['DOCUMENT_ROOT'] .  "/data/skills/" . htmlspecialchars($_GET['id']) . ".json";
 
 // Check if the file exists
 if (!file_exists($filePath)) {
@@ -37,7 +42,7 @@ if ($skillData === null) {
 </h1>
 
 <form action="/facts/skills/update.php" method="post" style="display:flex; flex-direction:column;">
-    <input type="hidden" name="file" value="<?php echo htmlspecialchars($_GET['file']); ?>">
+    <input type="hidden" name="id" value="<?php echo htmlspecialchars($_GET['id']); ?>">
     
     <label for="skill">Skill</label>
     <input type="text" id="skill" name="skill" value="<?php echo htmlspecialchars($skillData['skill']); ?>" required>
