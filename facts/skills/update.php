@@ -41,4 +41,3 @@ if ($result === false) {
     header('Location: /facts/skills/?update=success');
     exit;
 }
-?>

@@ -30,7 +30,7 @@ foreach ($files as $file) {
     $filePath = '/data/education/' . $fileName;
     $fileData = json_decode(file_get_contents($file), true);
     if ($fileData === null) {
-        echo "Error reading file: $file";
+        echo "Error reading file with id: $id";
         continue;
     }
 

@@ -8,6 +8,11 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
+if (!is_numeric($_GET['id'])) {
+    echo "Invalid id.";
+    exit;
+}
+
 $filePath = $_SERVER['DOCUMENT_ROOT'] . '/data/education/' . htmlspecialchars($_GET['id']) . '.json';
 
 // Check if the file exists

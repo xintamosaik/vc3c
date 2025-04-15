@@ -1,5 +1,17 @@
 <?php
 // Get the submitted form data
+
+
+if (!isset($_POST['id'])) {
+    echo "No id specified.";
+    exit;
+}
+
+if (!is_numeric($_POST['id'])) {
+    echo "Invalid id.";
+    exit;
+}
+
 $requested_to_delete = $_POST['id'];
 
 // Define the file path where the data will be stored
